@@ -3,108 +3,110 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>UJWAL ELECTRICALS AND MECHANICAL ENGINEERS ENTERPRISES</title>
-<meta name="description" content="UJWAL Electricals and Mechanical Engineers Enterprises - CNC, VMC, HMC machines, welding machines, compressors, hydraulic and pneumatic service solutions.">
-<meta name="keywords" content="CNC, VMC, HMC, Electrical Service, Mechanical Engineers, Air Compressor, Welding Machine, Ghaziabad">
-<meta name="author" content="UJWAL ELECTRICALS">
+
+<title>CNC Service | VMC & HMC Maintenance | UJWAL ELECTRICALS AND MECHANICAL ENGINEERS ENTERPRISES</title>
+
+<meta name="description" content="Looking for CNC service near you? UJWAL ELECTRICALS provides professional CNC, VMC, HMC machine repair, electrical panel service, compressor repair and industrial maintenance services.">
+<meta name="keywords" content="CNC service, CNC repair, VMC maintenance, HMC machine service, industrial electrical service, air compressor repair, CNC service near me">
+<meta name="author" content="UJWAL ELECTRICALS AND MECHANICAL ENGINEERS ENTERPRISES">
+
+<meta property="og:title" content="CNC Service & Industrial Maintenance - UJWAL ELECTRICALS">
+<meta property="og:description" content="Professional CNC, VMC & HMC machine servicing and industrial electrical solutions.">
+<meta property="og:type" content="website">
+
 <link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "UJWAL ELECTRICALS AND MECHANICAL ENGINEERS ENTERPRISES",
+  "service": "CNC, VMC, HMC Machine Service",
+  "areaServed": "India"
+}
+</script>
+
 </head>
 
 <body>
 
 <header class="header">
-  <nav class="navbar container">
+  <div class="container nav">
     <div class="logo">UJWAL ELECTRICALS</div>
     <ul class="nav-links">
       <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
       <li><a href="#services">Services</a></li>
-      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#request">Request Service</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="menu-toggle">&#9776;</div>
-  </nav>
+  </div>
 </header>
 
 <section id="home" class="hero">
-  <div class="hero-content container">
-    <h1>Precision Electrical & Mechanical Solutions</h1>
-    <p>Experts in CNC, VMC, HMC Machines, Welding Systems, Compressors & Industrial Maintenance.</p>
-    <a href="#contact" class="btn">Get a Quote</a>
+  <div class="hero-overlay"></div>
+  <div class="container hero-content">
+    <h1>Professional CNC, VMC & HMC Machine Service</h1>
+    <p>Industrial Electrical & Mechanical Maintenance Experts</p>
+    <a href="#request" class="btn-primary">Request CNC Service</a>
   </div>
 </section>
 
-<section id="about" class="about section">
+<section id="services" class="section">
   <div class="container">
-    <h2>About Us</h2>
-    <p>
-      UJWAL Electricals and Mechanical Engineers Enterprises provides complete industrial solutions including CNC, VMC, HMC machinery services, power factor solutions, hydraulic and pneumatic maintenance, and more.
-    </p>
+    <h2>Our Industrial Services</h2>
+    <ul class="seo-list">
+      <li>CNC Machine Repair & Maintenance</li>
+      <li>VMC Machine Service</li>
+      <li>HMC Machine Breakdown Support</li>
+      <li>Industrial Electrical Panel Service</li>
+      <li>Air Compressor Maintenance</li>
+      <li>Hydraulic & Pneumatic System Repair</li>
+    </ul>
   </div>
 </section>
 
-<section id="services" class="services section">
+<section id="request" class="section request">
   <div class="container">
-    <h2>Our Services</h2>
-    <div class="service-grid">
-      <div class="card">
-        <h3>CNC / VMC / HMC</h3>
-        <p>Installation, service and maintenance of industrial machines with FANUC control.</p>
-      </div>
-      <div class="card">
-        <h3>Welding Machines</h3>
-        <p>AC & DC welding systems service and supply.</p>
-      </div>
-      <div class="card">
-        <h3>Air Compressors</h3>
-        <p>D.G air compressors hydraulic and pneumatic solutions.</p>
-      </div>
-      <div class="card">
-        <h3>Power Factor Solutions</h3>
-        <p>HT/LT panel servicing and electrical optimization.</p>
-      </div>
-    </div>
-  </div>
-</section>
+    <h2>Request Service For Your Company</h2>
 
-<section id="testimonials" class="testimonials section">
-  <div class="container">
-    <h2>What Clients Say</h2>
-    <div class="testimonial-grid">
-      <div class="testimonial">
-        <p>"Professional and reliable service for our CNC machines."</p>
-        <h4>- Manufacturing Client</h4>
-      </div>
-      <div class="testimonial">
-        <p>"Quick maintenance support and excellent technical expertise."</p>
-        <h4>- Industrial Partner</h4>
-      </div>
-    </div>
-  </div>
-</section>
+    <form id="serviceForm">
 
-<section id="contact" class="contact section">
-  <div class="container">
-    <h2>Contact Us</h2>
-    <form id="contactForm" novalidate>
-      <input type="text" id="name" placeholder="Your Name" required>
-      <input type="email" id="email" placeholder="Your Email" required>
-      <textarea id="message" placeholder="Your Message" required></textarea>
-      <button type="submit" class="btn">Send Message</button>
+      <input type="text" id="company" placeholder="Company Name" required>
+      <input type="text" id="contactPerson" placeholder="Contact Person Name" required>
+      <input type="tel" id="phone" placeholder="Phone Number" required>
+      <input type="email" id="email" placeholder="Email Address" required>
+
+      <select id="serviceType" required>
+        <option value="">Select Required Service</option>
+        <option>CNC Machine Service</option>
+        <option>VMC Maintenance</option>
+        <option>HMC Repair</option>
+        <option>Electrical Panel Service</option>
+        <option>Air Compressor Service</option>
+      </select>
+
+      <textarea id="details" placeholder="Describe Issue / Requirement" required></textarea>
+
+      <button type="submit" class="btn-primary">Submit Service Request</button>
       <p id="formMessage"></p>
+
     </form>
+  </div>
+</section>
+
+<section id="contact" class="section">
+  <div class="container">
+    <h2>Contact Information</h2>
+    <p>Email: yourcompany@email.com</p>
+    <p>Phone: +91-XXXXXXXXXX</p>
   </div>
 </section>
 
 <footer class="footer">
   <div class="container">
     <p>© 2026 UJWAL ELECTRICALS AND MECHANICAL ENGINEERS ENTERPRISES</p>
-    <div class="social-links">
-      <a href="#">Facebook</a>
-      <a href="#">LinkedIn</a>
-      <a href="#">Instagram</a>
-    </div>
   </div>
 </footer>
 
