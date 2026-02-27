@@ -1,157 +1,177 @@
-const products = [
-{
-    id:"KBL-1HP-MB",
-    name:"Kirloskar 1HP Monoblock Pump",
-    category:"monoblock",
-    brand:"kirloskar",
-    hp:1,
-    voltage:230,
-    flow:120,
-    stock:true
-},
-{
-    id:"CRI-3HP-SUB",
-    name:"CRI 3HP Submersible Pump",
-    category:"submersible",
-    brand:"cri",
-    hp:3,
-    voltage:415,
-    flow:300,
-    stock:false
-}
-];
+// Current Year for Footer
+document.getElementById('year').textContent = new Date().getFullYear();
 
-let enquiryCart=[];
-const grid=document.getElementById("productGrid");
-const cartBadge=document.getElementById("cartBadge");
-
-function debounce(fn,delay){
-    let t;
-    return (...args)=>{
-        clearTimeout(t);
-        t=setTimeout(()=>fn.apply(this,args),delay);
-    };
-}
-
-function renderProducts(list){
-    grid.innerHTML="";
-    if(!list.length){
-        grid.innerHTML="<p>No products found.</p>";
-        return;
+// Scroll Progress Indicator
+window.onscroll = function() {
+    let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    let scrolled = (winScroll / height) * 100;
+    document.getElementById("scroll-progress").style.width = scrolled + "%";
+    
+    // Sticky Navbar
+    const navbar = document.getElementById("navbar");
+    if (window.scrollY > 50) {
+        navbar.classList.add("scrolled");
+    } else {
+        navbar.classList.remove("scrolled");
     }
 
-    list.forEach(p=>{
-        const div=document.createElement("div");
-        div.className="card";
-        div.innerHTML=`
-            <h3>${p.name}</h3>
-            <div class="spec">SKU: ${p.id}</div>
-            <div class="spec">HP: ${p.hp}</div>
-            <div class="spec">Voltage: ${p.voltage}V</div>
-            <div class="spec">Flow: ${p.flow} LPM</div>
-            <div class="stock ${p.stock?"instock":"outstock"}">
-                ${p.stock?"In Stock":"Out of Stock"}
-            </div>
-            <button onclick="addToCart('${p.id}')">Add to Enquiry</button>
-        `;
-        grid.appendChild(div);
-
-        injectProductSchema(p);
-    });
-}
-
-function filterProducts(){
-    const params=new URLSearchParams(window.location.search);
-
-    let filtered=[...products];
-
-    const search=document.getElementById("searchInput").value.toLowerCase();
-    const category=document.getElementById("categoryFilter").value;
-    const brand=document.getElementById("brandFilter").value;
-    const hp=document.getElementById("hpFilter").value;
-    const voltage=document.getElementById("voltageFilter").value;
-    const stock=document.getElementById("stockFilter").checked;
-    const sort=document.getElementById("sortFilter").value;
-
-    if(search){
-        filtered=filtered.filter(p=>
-            p.name.toLowerCase().includes(search) ||
-            p.id.toLowerCase().includes(search) ||
-            p.brand.includes(search)
-        );
+    // Back to top button
+    const backToTop = document.getElementById("backToTop");
+    if (window.scrollY > 300) {
+        backToTop.classList.add("show");
+    } else {
+        backToTop.classList.remove("show");
     }
+};
 
-    if(category) filtered=filtered.filter(p=>p.category===category);
-    if(brand) filtered=filtered.filter(p=>p.brand===brand);
-    if(hp) filtered=filtered.filter(p=>p.hp==hp);
-    if(voltage) filtered=filtered.filter(p=>p.voltage==voltage);
-    if(stock) filtered=filtered.filter(p=>p.stock);
-
-    if(sort==="az") filtered.sort((a,b)=>a.name.localeCompare(b.name));
-    if(sort==="hpLow") filtered.sort((a,b)=>a.hp-b.hp);
-    if(sort==="stock") filtered.sort((a,b)=>b.stock-a.stock);
-
-    renderProducts(filtered);
-    updateURL(category,brand,hp,voltage);
-}
-
-function updateURL(category,brand,hp,voltage){
-    const params=new URLSearchParams();
-    if(category) params.set("category",category);
-    if(brand) params.set("brand",brand);
-    if(hp) params.set("hp",hp);
-    if(voltage) params.set("voltage",voltage);
-    history.replaceState(null,"","?"+params.toString());
-}
-
-function addToCart(id){
-    if(!enquiryCart.includes(id)) enquiryCart.push(id);
-    cartBadge.textContent=enquiryCart.length;
-    updateEnquiryBox();
-}
-
-function updateEnquiryBox(){
-    const box=document.getElementById("enquiryBox");
-    const list=document.getElementById("enquiryList");
-    list.innerHTML="";
-    enquiryCart.forEach(id=>{
-        const li=document.createElement("li");
-        li.textContent=id;
-        list.appendChild(li);
+// Back to top functionality
+document.getElementById('backToTop').addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
     });
-    if(enquiryCart.length) box.classList.remove("hidden");
-}
-
-document.getElementById("whatsappBtn").addEventListener("click",()=>{
-    let message="Hello, I need quotation for:\n";
-    enquiryCart.forEach(id=>message+="- "+id+"\n");
-    window.open("https://wa.me/91XXXXXXXXXX?text="+encodeURIComponent(message));
 });
 
-function injectProductSchema(product){
-    const script=document.createElement("script");
-    script.type="application/ld+json";
-    script.textContent=JSON.stringify({
-        "@context":"https://schema.org",
-        "@type":"Product",
-        "name":product.name,
-        "sku":product.id,
-        "brand":product.brand,
-        "offers":{
-            "@type":"Offer",
-            "availability":product.stock?
-            "https://schema.org/InStock":
-            "https://schema.org/OutOfStock"
+// Mobile Menu Toggle
+const mobileToggle = document.querySelector('.mobile-toggle');
+const navLinks = document.querySelector('.nav-links');
+
+mobileToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    const icon = mobileToggle.querySelector('i');
+    if (navLinks.classList.contains('active')) {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-times');
+    } else {
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+    }
+});
+
+// Close mobile menu on link click
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        const icon = mobileToggle.querySelector('i');
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+    });
+});
+
+// Scroll Animations (Intersection Observer)
+const fadeElements = document.querySelectorAll('.fade-in');
+const appearOptions = {
+    threshold: 0.15,
+    rootMargin: "0px 0px -50px 0px"
+};
+
+const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+    entries.forEach(entry => {
+        if (!entry.isIntersecting) {
+            return;
+        } else {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
         }
     });
-    document.head.appendChild(script);
-}
+}, appearOptions);
 
-document.querySelectorAll("select,input").forEach(el=>{
-    el.addEventListener("change",filterProducts);
+fadeElements.forEach(el => {
+    appearOnScroll.observe(el);
 });
 
-document.getElementById("searchInput")
-.addEventListener("input",debounce(filterProducts,300));
+// FAQ Accordion
+const faqQuestions = document.querySelectorAll('.faq-question');
 
-renderProducts(products);
+faqQuestions.forEach(question => {
+    question.addEventListener('click', () => {
+        const isActive = question.classList.contains('active');
+        
+        // Close all
+        faqQuestions.forEach(q => {
+            q.classList.remove('active');
+            q.nextElementSibling.style.maxHeight = null;
+        });
+
+        // Open clicked if it wasn't active
+        if (!isActive) {
+            question.classList.add('active');
+            const answer = question.nextElementSibling;
+            answer.style.maxHeight = answer.scrollHeight + "px";
+        }
+    });
+});
+
+// Form Validation
+const contactForm = document.getElementById('contactForm');
+
+contactForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    let isValid = true;
+    
+    // Inputs
+    const name = document.getElementById('name');
+    const email = document.getElementById('email');
+    const phone = document.getElementById('phone');
+    const message = document.getElementById('message');
+    
+    // Errors
+    const nameError = document.getElementById('nameError');
+    const emailError = document.getElementById('emailError');
+    const phoneError = document.getElementById('phoneError');
+    const messageError = document.getElementById('messageError');
+    const successMsg = document.getElementById('formSuccess');
+    
+    // Reset errors
+    [nameError, emailError, phoneError, messageError].forEach(el => el.style.display = 'none');
+    successMsg.style.display = 'none';
+    [name, email, phone, message].forEach(el => el.style.borderColor = '#d1d5db');
+
+    // Validation logic
+    if (name.value.trim() === '') {
+        nameError.style.display = 'block';
+        name.style.borderColor = '#dc2626';
+        isValid = false;
+    }
+    
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email.value.trim())) {
+        emailError.style.display = 'block';
+        email.style.borderColor = '#dc2626';
+        isValid = false;
+    }
+    
+    const phonePattern = /^\+?[0-9\s\-]{7,15}$/;
+    if (!phonePattern.test(phone.value.trim())) {
+        phoneError.style.display = 'block';
+        phone.style.borderColor = '#dc2626';
+        isValid = false;
+    }
+    
+    if (message.value.trim() === '') {
+        messageError.style.display = 'block';
+        message.style.borderColor = '#dc2626';
+        isValid = false;
+    }
+    
+    if (isValid) {
+        // Simulate API call
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+        
+        setTimeout(() => {
+            successMsg.style.display = 'block';
+            contactForm.reset();
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+            
+            setTimeout(() => {
+                successMsg.style.display = 'none';
+            }, 5000);
+        }, 1500);
+    }
+});
