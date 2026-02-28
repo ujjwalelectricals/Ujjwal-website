@@ -166,3 +166,24 @@ if(contactForm) {
         }
     });
 }
+// --- LIVE PRODUCT SEARCH FILTER ---
+const searchInput = document.getElementById('productSearch');
+const productCards = document.querySelectorAll('.product-card');
+
+if (searchInput) {
+    searchInput.addEventListener('input', function(e) {
+        const searchTerm = e.target.value.toLowerCase();
+
+        productCards.forEach(card => {
+            // Read the data-name attribute we added in HTML
+            const keywords = card.getAttribute('data-name').toLowerCase();
+            
+            // If the typed word matches the keywords, show the card. Otherwise, hide it!
+            if (keywords.includes(searchTerm)) {
+                card.style.display = "block";
+            } else {
+                card.style.display = "none";
+            }
+        });
+    });
+}
