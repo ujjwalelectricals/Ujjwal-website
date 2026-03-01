@@ -1,122 +1,138 @@
-/**
- * NCR Industrial Automation - Performance Optimized Script
- */
+/* ==========================================================================
+   NCR Industrial Automation - Main JavaScript Logic
+   ========================================================================== */
 
-(function() {
-    "use strict";
+document.addEventListener('DOMContentLoaded', () => {
+    // Add class to body to enable scroll animations once JS is ready
+    document.body.classList.add('js-loaded');
 
-    const state = {
-        isNavOpen: false,
-        isDarkMode: localStorage.getItem('theme') === 'dark'
+    // --- CONFIGURATION & SELECTORS ---
+    const navbar = document.getElementById('navbar');
+    const scrollProgress = document.getElementById('scroll-progress');
+    const backToTop = document.getElementById('backToTop');
+    const mobileToggle = document.querySelector('.mobile-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    const yearSpan = document.getElementById('year');
+
+    // Set Footer Year
+    if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+
+    // --- COUNTER ANIMATION LOGIC ---
+    const runCounters = () => {
+        const counters = document.querySelectorAll('.counter');
+        const duration = 2000; // Total animation time in ms (2 seconds)
+
+        counters.forEach(counter => {
+            // Check if counter has already run to avoid loops
+            if (counter.classList.contains('counted')) return;
+
+            const target = +counter.getAttribute('data-target');
+            const startTime = performance.now();
+
+            const updateCount = (currentTime) => {
+                const elapsedTime = currentTime - startTime;
+                const progress = Math.min(elapsedTime / duration, 1);
+                
+                // Use easeOutQuad for smoother finish
+                const easedProgress = progress * (2 - progress);
+                const currentValue = Math.floor(easedProgress * target);
+
+                counter.innerText = currentValue.toLocaleString();
+
+                if (progress < 1) {
+                    requestAnimationFrame(updateCount);
+                } else {
+                    counter.innerText = target.toLocaleString() + "+";
+                    counter.classList.add('counted');
+                }
+            };
+
+            requestAnimationFrame(updateCount);
+        });
     };
 
-    const elements = {
-        body: document.body,
-        navbar: document.getElementById('navbar'),
-        navLinks: document.querySelector('.nav-links'),
-        mobileToggle: document.querySelector('.mobile-toggle'),
-        scrollProgress: document.getElementById('scroll-progress'),
-        backToTop: document.getElementById('backToTop'),
-        contactForm: document.getElementById('contactForm'),
-        faqQuestions: document.querySelectorAll('.faq-question'),
-        searchInput: document.getElementById('productSearch'),
-        productCards: document.querySelectorAll('.product-card'),
-        yearSpan: document.getElementById('year')
+    // --- INTERSECTION OBSERVER (Scroll Animations) ---
+    const observerOptions = {
+        threshold: 0.15,
+        rootMargin: "0px 0px -50px 0px"
     };
 
-    const init = () => {
-        elements.body.classList.add('js-loaded');
-        if (elements.yearSpan) elements.yearSpan.textContent = new Date().getFullYear();
-        setupIntersectionObserver();
-        applySavedTheme();
-    };
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
 
-    const applySavedTheme = () => {
-        if (state.isDarkMode) elements.body.classList.add('dark-theme');
-    };
+                // Trigger counters if this is the stats section
+                if (entry.target.classList.contains('about-stats')) {
+                    runCounters();
+                }
+                
+                // Once visible, stop observing to save performance
+                sectionObserver.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
 
-    const toggleMobileMenu = () => {
-        state.isNavOpen = !state.isNavOpen;
-        elements.navLinks.classList.toggle('active');
-        const icon = elements.mobileToggle.querySelector('i');
-        icon.className = state.isNavOpen ? 'fas fa-times' : 'fas fa-bars';
-        elements.body.style.overflow = state.isNavOpen ? 'hidden' : '';
-    };
+    // Observe all fade elements and the stats box
+    document.querySelectorAll('.scroll-fade, .about-stats').forEach(el => {
+        sectionObserver.observe(el);
+    });
 
-    // Performance Optimized Scroll
-    let lastScrollY = window.scrollY;
-    let ticking = false;
-
+    // --- SCROLL EVENTS (Progress Bar & Navbar) ---
     window.addEventListener('scroll', () => {
-        if (!ticking) {
-            window.requestAnimationFrame(() => {
-                handleScrollEffects();
-                ticking = false;
-            });
-            ticking = true;
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        
+        // Progress Bar
+        if (scrollProgress) scrollProgress.style.width = scrolled + "%";
+
+        // Navbar Sticky State
+        if (winScroll > 50) {
+            navbar.classList.add('scrolled');
+            backToTop.classList.add('show');
+        } else {
+            navbar.classList.remove('scrolled');
+            backToTop.classList.remove('show');
         }
     });
 
-    const handleScrollEffects = () => {
-        const scrollY = window.scrollY;
-        
-        // Progress Bar
-        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const scrollPercent = (scrollY / docHeight) * 100;
-        if (elements.scrollProgress) elements.scrollProgress.style.width = `${scrollPercent}%`;
+    // --- MOBILE MENU ---
+    mobileToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        mobileToggle.querySelector('i').classList.toggle('fa-bars');
+        mobileToggle.querySelector('i').classList.toggle('fa-times');
+    });
 
-        // Nav & Back to Top
-        elements.navbar.classList.toggle('scrolled', scrollY > 50);
-        elements.backToTop.classList.toggle('show', scrollY > 400);
-    };
+    // Close menu when clicking links
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            mobileToggle.querySelector('i').classList.add('fa-bars');
+            mobileToggle.querySelector('i').classList.remove('fa-times');
+        });
+    });
 
-    // FIXED: Snappier Scroll Animations
-    const setupIntersectionObserver = () => {
-        // threshold 0.05 makes it trigger almost instantly
-        // rootMargin -50px ensures it doesn't wait for the middle of the screen
-        const options = { 
-            threshold: 0.05, 
-            rootMargin: "0px 0px -50px 0px" 
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    // Force the animation into a separate thread
-                    window.requestAnimationFrame(() => {
-                        entry.target.classList.add('visible');
-                    });
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, options);
-
-        document.querySelectorAll('.scroll-fade').forEach(el => observer.observe(el));
-    };
-
-    // Search Optimization
-    if (elements.searchInput) {
-        elements.searchInput.addEventListener('input', (e) => {
+    // --- PRODUCT SEARCH FILTER ---
+    const searchInput = document.getElementById('productSearch');
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
             const term = e.target.value.toLowerCase();
-            elements.productCards.forEach(card => {
-                const text = card.innerText.toLowerCase();
-                card.style.display = text.includes(term) ? "block" : "none";
+            const products = document.querySelectorAll('.product-card');
+
+            products.forEach(product => {
+                const name = product.getAttribute('data-name').toLowerCase();
+                if (name.includes(term)) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
             });
         });
     }
 
-    // Event Listeners
-    elements.mobileToggle.addEventListener('click', toggleMobileMenu);
-    
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-            if (state.isNavOpen) toggleMobileMenu();
-        });
-    });
-
-    elements.backToTop.addEventListener('click', () => {
+    // --- BACK TO TOP ---
+    backToTop.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
-
-    init();
-})();
+});
