@@ -3,347 +3,696 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#0A192F">
-
-    <meta name="description" content="NCR Industrial Automation - Trusted wholesale supplier of OMRON Sensors, NSK Bearings, Casappa Pumps, and Fanuc Fans in Delhi NCR, Bhagirath Palace.">
-    <meta name="keywords" content="OMRON sensor supplier Delhi, NSK bearings dealer NCR, Casappa pump supplier India, Fanuc drive fan Delhi, industrial collets Bhagirath Palace, ferrite ring magnets, wholesale automation parts">
-    <meta property="og:title" content="NCR Industrial Automation | OMRON, NSK, Casappa & Fanuc Parts">
-    <meta property="og:description" content="Your reliable wholesale source for industrial automation components directly from Bhagirath Palace hub.">
+    <meta name="theme-color" content="#0D1B2A">
+    <meta name="description" content="Ujjwal Electricals & Mechanical Engineers Enterprises - CNC, VMC, HMC service, maintenance, and industrial spare parts supplier in Ghaziabad. Authorized service for Fanuc, Makino, Daewoo, BFW, Doosan machines.">
+    <meta name="keywords" content="CNC service Ghaziabad, VMC maintenance, Fanuc control, Brinkmann pumps, FAG bearings, NMB fans, Makino service, Daewoo CNC, industrial automation NCR">
+    <meta property="og:title" content="Ujjwal Electricals & Mechanical Engineers | CNC Service & Industrial Parts">
+    <meta property="og:description" content="Expert CNC/VMC/HMC service, Fanuc training, and genuine industrial spare parts in Ghaziabad NCR.">
     <meta property="og:type" content="website">
-
-    <title>NCR Industrial Automation | Premium B2B Supplier Delhi</title>
+    <title>Ujjwal Electricals & Mechanical Engineers | CNC Service & Spares - Ghaziabad</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Rajdhani:wght@600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" defer>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <!-- Scroll Progress Bar -->
     <div id="scroll-progress"></div>
 
+    <!-- ===== NAVBAR ===== -->
     <header id="navbar">
         <div class="container nav-container">
-            <div class="logo">
-                <a href="#">NCR <span>Automation</span></a>
-            </div>
+            <a href="#home" class="logo">
+                <div class="logo-badge">
+                    <span class="logo-u">U</span><span class="logo-e">E</span>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-main">UJJWAL</span>
+                    <span class="logo-sub">Electricals & Mechanical</span>
+                </div>
+            </a>
 
-            <nav class="nav-links">
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#products">Products</a>
-                <a href="#industries">Industries</a>
-                <a href="#faq">FAQ</a>
-                <button id="theme-toggle" class="btn-icon" aria-label="Toggle Dark Mode">
-                    <i class="fas fa-moon"></i>
-                </button>
-                <a href="#contact" class="btn btn-outline btn-sm">Contact Us</a>
+            <nav class="nav-links" id="navLinks">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#products" class="nav-link">Products</a>
+                <a href="#brands" class="nav-link">Brands</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+                <a href="#contact" class="btn btn-nav">Get Quote</a>
             </nav>
 
-            <button class="mobile-toggle" aria-label="Toggle Navigation">
-                <i class="fas fa-bars"></i>
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Navigation">
+                <span></span><span></span><span></span>
             </button>
         </div>
     </header>
 
     <main>
+        <!-- ===== HERO ===== -->
         <section id="home" class="hero">
-            <div class="container hero-content css-animate-hero">
-                <span class="trust-badge">ISO 9001:2015 Certified Supply Network</span>
-                <h1>Trusted Industrial Automation Components</h1>
-                <p>Your reliable wholesale source for OMRON sensors, Casappa pumps, NSK bearings, and Fanuc CNC spares directly from Delhi's industrial hub.</p>
-                <div class="hero-buttons">
-                    <a href="#contact" class="btn btn-primary">Request Bulk Quote</a>
-                    <a href="#products" class="btn btn-secondary">View Catalog</a>
+            <canvas id="heroCanvas"></canvas>
+            <div class="hero-overlay"></div>
+            <div class="container hero-content">
+                <div class="hero-badge scroll-in">
+                    <i class="fas fa-certificate"></i>
+                    GSTIN: 09CWDPD3387A1ZS &nbsp;|&nbsp; Service & Maintenance Experts
                 </div>
+                <h1 class="hero-title scroll-in delay-1">
+                    Precision CNC <span class="accent">Service</span> &<br>Industrial <span class="accent">Spare Parts</span>
+                </h1>
+                <p class="hero-desc scroll-in delay-2">
+                    Expert maintenance for CNC, VMC &amp; HMC machines with Fanuc Control. Authorized service partner for Hyundai WIA, Makino, Daewoo, BFW &amp; Doosan in Ghaziabad NCR.
+                </p>
+                <div class="hero-actions scroll-in delay-3">
+                    <a href="#contact" class="btn btn-primary"><i class="fas fa-phone-alt"></i> Call for Service</a>
+                    <a href="#products" class="btn btn-ghost"><i class="fas fa-boxes-stacked"></i> View Products</a>
+                </div>
+                <div class="hero-stats scroll-in delay-4">
+                    <div class="hstat"><span class="counter" data-target="500">0</span>+ <em>Machines Serviced</em></div>
+                    <div class="hstat-divider"></div>
+                    <div class="hstat"><span class="counter" data-target="20">0</span>+ <em>Years Experience</em></div>
+                    <div class="hstat-divider"></div>
+                    <div class="hstat"><span class="counter" data-target="6">0</span> <em>Machine Brands</em></div>
+                </div>
+            </div>
+            <div class="hero-scroll-hint">
+                <span>Scroll</span>
+                <div class="scroll-line"></div>
             </div>
         </section>
 
+        <!-- ===== ABOUT ===== -->
         <section id="about" class="about section-padding">
             <div class="container">
-                <div class="section-title scroll-fade">
-                    <h2>About Us</h2>
-                    <div class="underline"></div>
-                </div>
-                <div class="about-grid scroll-fade">
-                    <div class="about-text">
-                        <h3>Deep Roots in Delhi's Industrial Hub</h3>
-                        <p>Based in the heart of Delhi NCR with strong ties to the Bhagirath Palace and Chawri Bazar electrical markets, NCR Industrial Automation is a premier B2B supplier of industrial electronics.</p>
-                        <p>We bridge the gap between top-tier manufacturers and local industries, ensuring you receive genuine automation spare parts, competitive wholesale pricing, and rapid fulfillment to minimize your factory downtime.</p>
-                        <ul class="about-list">
-                            <li><i class="fas fa-check-circle"></i> Certified Genuine Components</li>
-                            <li><i class="fas fa-check-circle"></i> Bulk Sourcing Specialists</li>
-                            <li><i class="fas fa-check-circle"></i> Pan-India Dispatch from NCR</li>
-                        </ul>
-                    </div>
-                    <div class="about-stats">
-                        <div class="stat-box">
-                            <i class="fas fa-industry"></i>
-                            <h4 class="counter" data-target="1000">0</h4>
-                            <p>Factories Served</p>
+                <div class="grid-about">
+                    <div class="about-visual scroll-fade">
+                        <div class="about-card-main">
+                            <div class="ue-emblem">
+                                <div class="emblem-inner">
+                                    <span class="em-u">U</span><span class="em-e">E</span>
+                                </div>
+                            </div>
+                            <h3>Ujjwal Electricals &<br>Mechanical Engineers</h3>
+                            <p class="about-tagline">Service &amp; Maintenance Specialists</p>
+                            <div class="about-contact-quick">
+                                <a href="tel:9971276078"><i class="fas fa-phone"></i> 9971276078</a>
+                                <a href="tel:9910228978"><i class="fas fa-phone"></i> 9910228978</a>
+                            </div>
                         </div>
-                        <div class="stat-box">
-                            <i class="fas fa-box-open"></i>
-                            <h4 class="counter" data-target="10000">0</h4>
-                            <p>Parts in Stock</p>
+                        <div class="about-accent-block">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <p>Sector-9, H.No. 2313, Block-51<br>Siddharth Vihar, Ghaziabad - 201009</p>
                         </div>
                     </div>
-                </div>
-            </div>
-        </section>
 
-        <section id="products" class="products section-padding bg-light">
-            <div class="container">
-                <div class="section-title scroll-fade">
-                    <h2>Featured Products</h2>
-                    <div class="underline"></div>
-                    <p>High-performance automation equipment for uninterrupted manufacturing.</p>
-                </div>
+                    <div class="about-text-col scroll-fade delay-1">
+                        <div class="section-label">Who We Are</div>
+                        <h2>Deep Expertise in CNC Machinery</h2>
+                        <p>Ujjwal Electricals & Mechanical Engineers Enterprises is a trusted name in CNC/VMC/HMC machine service, maintenance, and industrial spare parts supply in Ghaziabad and the wider NCR region.</p>
+                        <p>Led by <strong>Durga Nath Pandey</strong>, we combine deep electrical and mechanical engineering expertise to deliver rapid, reliable solutions — minimizing your downtime and maximizing productivity.</p>
 
-                <div class="search-container scroll-fade">
-                    <i class="fas fa-search search-icon"></i>
-                    <input type="text" id="productSearch" placeholder="Search M12, NSK, Pump, Fanuc...">
-                </div>
+                        <div class="about-highlights">
+                            <div class="highlight-item">
+                                <div class="hi-icon"><i class="fas fa-cogs"></i></div>
+                                <div>
+                                    <strong>Fanuc Certified</strong>
+                                    <span>CNC/VMC/HMC training & repair with Fanuc Control systems</span>
+                                </div>
+                            </div>
+                            <div class="highlight-item">
+                                <div class="hi-icon"><i class="fas fa-tools"></i></div>
+                                <div>
+                                    <strong>All Machine Types</strong>
+                                    <span>Conventional, CNC, welding, hydraulic & pneumatic systems</span>
+                                </div>
+                            </div>
+                            <div class="highlight-item">
+                                <div class="hi-icon"><i class="fas fa-truck-fast"></i></div>
+                                <div>
+                                    <strong>Fast Turnaround</strong>
+                                    <span>Same-day emergency service for critical production lines</span>
+                                </div>
+                            </div>
+                        </div>
 
-                <div class="product-grid">
-                    <article class="product-card text-only-card scroll-fade" data-name="omron proximity sensors m12 plug-in pnp no metal detection">
-                        <div class="card-accent"></div>
-                        <h3>OMRON Proximity Sensors</h3>
-                        <ul class="product-specs">
-                            <li><strong>Type:</strong> M12, Plug-in</li>
-                            <li><strong>Output:</strong> PNP NO</li>
-                            <li><strong>Application:</strong> Metal detection</li>
-                        </ul>
-                        <a href="#contact" class="btn btn-primary btn-sm btn-block">Inquire Bulk Rate</a>
-                    </article>
-
-                    <article class="product-card text-only-card scroll-fade delay-1" data-name="casappa pump hydraulic gear pumps industrial coolant pumps">
-                        <div class="card-accent"></div>
-                        <h3>Casappa & Industrial Pumps</h3>
-                        <ul class="product-specs">
-                            <li><strong>Brand:</strong> Casappa (Italy)</li>
-                            <li><strong>Type:</strong> Gear & Hydraulic Pumps</li>
-                            <li><strong>Application:</strong> Heavy Machinery</li>
-                        </ul>
-                        <a href="#contact" class="btn btn-primary btn-sm btn-block">Inquire Bulk Rate</a>
-                    </article>
-
-                    <article class="product-card text-only-card scroll-fade delay-2" data-name="nsk bearings fag bearings precision roller ball bearings">
-                        <div class="card-accent"></div>
-                        <h3>NSK & FAG Bearings</h3>
-                        <ul class="product-specs">
-                            <li><strong>Brand:</strong> NSK, FAG, SKF</li>
-                            <li><strong>Type:</strong> Precision Ball Bearings</li>
-                            <li><strong>Application:</strong> High-speed Spindles</li>
-                        </ul>
-                        <a href="#contact" class="btn btn-primary btn-sm btn-block">Inquire Bulk Rate</a>
-                    </article>
-
-                    <article class="product-card text-only-card scroll-fade delay-3" data-name="fanuc drive fan sanyo denki cooling fan dc24v cnc spares">
-                        <div class="card-accent"></div>
-                        <h3>Fanuc & Cooling Fans</h3>
-                        <ul class="product-specs">
-                            <li><strong>Brand:</strong> Fanuc, Sanyo Denki</li>
-                            <li><strong>Voltage:</strong> DC 24V / 48V</li>
-                            <li><strong>Usage:</strong> CNC Drive Cooling</li>
-                        </ul>
-                        <a href="#contact" class="btn btn-primary btn-sm btn-block">Inquire Bulk Rate</a>
-                    </article>
-
-                    <article class="product-card text-only-card scroll-fade" data-name="industrial collets er16 er25 er32 chuck tooling machine parts">
-                        <div class="card-accent"></div>
-                        <h3>Industrial Collets</h3>
-                        <ul class="product-specs">
-                            <li><strong>Types:</strong> ER16, ER25, ER32</li>
-                            <li><strong>Material:</strong> High-Grade Spring Steel</li>
-                            <li><strong>Market:</strong> Chawri Bazar Stock</li>
-                        </ul>
-                        <a href="#contact" class="btn btn-primary btn-sm btn-block">Inquire Bulk Rate</a>
-                    </article>
-
-                    <article class="product-card text-only-card scroll-fade delay-1" data-name="ferrite ring magnets industrial permanent magnets magnetic components">
-                        <div class="card-accent"></div>
-                        <h3>Ferrite Ring Magnets</h3>
-                        <ul class="product-specs">
-                            <li><strong>Shape:</strong> Ring, Block, Disk</li>
-                            <li><strong>Grade:</strong> Strong Industrial Ferrite</li>
-                            <li><strong>Usage:</strong> Motors & Sensors</li>
-                        </ul>
-                        <a href="#contact" class="btn btn-primary btn-sm btn-block">Inquire Bulk Rate</a>
-                    </article>
-
-                    <article class="product-card text-only-card scroll-fade delay-2" data-name="plc components modules cpus io communication cables logic control">
-                        <div class="card-accent"></div>
-                        <h3>PLC Components</h3>
-                        <ul class="product-specs">
-                            <li><strong>Brand:</strong> OMRON & Global Brands</li>
-                            <li><strong>Quality:</strong> 100% Tested</li>
-                            <li><strong>Application:</strong> Logic Control</li>
-                        </ul>
-                        <a href="#contact" class="btn btn-primary btn-sm btn-block">Inquire Bulk Rate</a>
-                    </article>
-
-                    <article class="product-card text-only-card scroll-fade delay-3" data-name="industrial relays contactors solid state electromechanical 24v 415v">
-                        <div class="card-accent"></div>
-                        <h3>Relays & Contactors</h3>
-                        <ul class="product-specs">
-                            <li><strong>Voltage:</strong> 24V to 415V</li>
-                            <li><strong>Type:</strong> Solid State / Mech</li>
-                            <li><strong>Usage:</strong> Power Switching</li>
-                        </ul>
-                        <a href="#contact" class="btn btn-primary btn-sm btn-block">Inquire Bulk Rate</a>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section id="why-us" class="why-us section-padding">
-            <div class="container">
-                <div class="section-title scroll-fade">
-                    <h2>Why Choose Us</h2>
-                    <div class="underline"></div>
-                </div>
-                <div class="features-grid">
-                    <div class="feature-item scroll-fade">
-                        <div class="feature-icon-wrapper"><i class="fas fa-shield-alt"></i></div>
-                        <h4>Genuine Products</h4>
-                        <p>We guarantee the authenticity of every sensor, bearing, and pump we supply.</p>
-                    </div>
-                    <div class="feature-item scroll-fade delay-1">
-                        <div class="feature-icon-wrapper"><i class="fas fa-tags"></i></div>
-                        <h4>Wholesale Pricing</h4>
-                        <p>Leveraging our NCR market network to offer the most competitive B2B rates.</p>
-                    </div>
-                    <div class="feature-item scroll-fade delay-2">
-                        <div class="feature-icon-wrapper"><i class="fas fa-truck-fast"></i></div>
-                        <h4>Fast Dispatch</h4>
-                        <p>Same-day dispatch available for in-stock items like Fanuc fans and NSK bearings.</p>
-                    </div>
-                    <div class="feature-item scroll-fade delay-3">
-                        <div class="feature-icon-wrapper"><i class="fas fa-network-wired"></i></div>
-                        <h4>Market Network</h4>
-                        <p>Deep sourcing capabilities across Bhagirath Palace for hard-to-find parts.</p>
+                        <div class="about-stats-row">
+                            <div class="astat">
+                                <h4 class="counter" data-target="500">1000</h4>
+                                <p>Machines Serviced</p>
+                            </div>
+                            <div class="astat">
+                                <h4 class="counter" data-target="1000">10000</h4>
+                                <p>Parts Supplied</p>
+                            </div>
+                            <div class="astat">
+                                <h4 class="counter" data-target="20">0</h4>
+                                <p>Years of Experience</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="faq" class="faq section-padding bg-light">
+        <!-- ===== SERVICES ===== -->
+        <section id="services" class="services section-padding bg-steel">
             <div class="container">
                 <div class="section-title scroll-fade">
+                    <div class="section-label light">What We Do</div>
+                    <h2>Services & Expertise</h2>
+                    <p>Comprehensive electrical and mechanical engineering services for the manufacturing industry.</p>
+                </div>
+
+                <div class="services-grid">
+                    <div class="service-card scroll-fade" data-index="0">
+                        <div class="sc-number">01</div>
+                        <div class="sc-icon"><i class="fas fa-microchip"></i></div>
+                        <h3>CNC / VMC / HMC Training</h3>
+                        <p>Full training centre with Fanuc Control. We train operators and technicians on CNC, VMC, and HMC machines for safe and efficient production.</p>
+                        <div class="sc-tags"><span>Fanuc Control</span><span>VMC</span><span>HMC</span></div>
+                    </div>
+                    <div class="service-card scroll-fade delay-1" data-index="1">
+                        <div class="sc-number">02</div>
+                        <div class="sc-icon"><i class="fas fa-wrench"></i></div>
+                        <h3>Conventional Machine Service</h3>
+                        <p>Service and maintenance for all types of conventional machines — lathes, milling machines, gear shapers, radial drill machines, and more.</p>
+                        <div class="sc-tags"><span>Milling</span><span>Gear Shaper</span><span>Radial Drill</span></div>
+                    </div>
+                    <div class="service-card scroll-fade delay-2" data-index="2">
+                        <div class="sc-number">03</div>
+                        <div class="sc-icon"><i class="fas fa-bolt"></i></div>
+                        <h3>Welding Machine A.C & D.C</h3>
+                        <p>Supply, service, and maintenance of industrial A.C and D.C welding machines for all manufacturing and fabrication requirements.</p>
+                        <div class="sc-tags"><span>AC Welding</span><span>DC Welding</span><span>Industrial</span></div>
+                    </div>
+                    <div class="service-card scroll-fade" data-index="3">
+                        <div class="sc-number">04</div>
+                        <div class="sc-icon"><i class="fas fa-gauge-high"></i></div>
+                        <h3>Power Factor Solution</h3>
+                        <p>Expert service and maintenance for power factor correction, DG sets, air compressors, hydraulic and pneumatic systems.</p>
+                        <div class="sc-tags"><span>Power Factor</span><span>DG Sets</span><span>Compressors</span></div>
+                    </div>
+                    <div class="service-card scroll-fade delay-1" data-index="4">
+                        <div class="sc-number">05</div>
+                        <div class="sc-icon"><i class="fas fa-droplet"></i></div>
+                        <h3>Hydraulic & Pneumatic Service</h3>
+                        <p>Complete hydraulic and pneumatic system maintenance including pump service, valve repair, and pressure system diagnostics.</p>
+                        <div class="sc-tags"><span>Hydraulic</span><span>Pneumatic</span><span>Pumps</span></div>
+                    </div>
+                    <div class="service-card scroll-fade delay-2" data-index="5">
+                        <div class="sc-number">06</div>
+                        <div class="sc-icon"><i class="fas fa-plug"></i></div>
+                        <h3>HT/LT Box & Glending</h3>
+                        <p>High tension and low tension electrical panel work, glending services, and complete electrical distribution system maintenance.</p>
+                        <div class="sc-tags"><span>HT Box</span><span>LT Box</span><span>Electrical Panels</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== PRODUCTS ===== -->
+        <section id="products" class="products section-padding">
+            <div class="container">
+                <div class="section-title scroll-fade">
+                    <div class="section-label">Spare Parts & Products</div>
+                    <h2>Featured Industrial Products</h2>
+                    <p>Genuine spare parts for CNC, VMC, HMC, and conventional machines — sourced from trusted global brands.</p>
+                </div>
+
+                <div class="product-filter-bar scroll-fade">
+                    <button class="filter-btn active" data-filter="all">All Products</button>
+                    <button class="filter-btn" data-filter="pumps">Pumps</button>
+                    <button class="filter-btn" data-filter="bearings">Bearings</button>
+                    <button class="filter-btn" data-filter="fans">Fans & Cooling</button>
+                    <button class="filter-btn" data-filter="electrical">Electrical</button>
+                </div>
+
+                <div class="search-wrap scroll-fade">
+                    <i class="fas fa-magnifying-glass"></i>
+                    <input type="text" id="productSearch" placeholder="Search products e.g. FAG, Brinkmann, NMB, coolant pump...">
+                </div>
+
+                <div class="product-grid" id="productGrid">
+
+                    <!-- BRINKMANN PUMPS -->
+                    <article class="product-card scroll-fade" data-name="brinkmann immersion pump coolant pump tc jet pump cnc" data-cat="pumps">
+                        <div class="pc-badge">Brinkmann</div>
+                        <div class="pc-icon-wrap pumps-color">
+                            <i class="fas fa-pump-medical"></i>
+                        </div>
+                        <div class="pc-body">
+                            <h3>Brinkmann Immersion Pumps</h3>
+                            <ul class="pc-specs">
+                                <li><i class="fas fa-angle-right"></i> Immersion Pump (Standard)</li>
+                                <li><i class="fas fa-angle-right"></i> II-R Immersion Pump</li>
+                                <li><i class="fas fa-angle-right"></i> TC / TC-I Coolant Pump</li>
+                                <li><i class="fas fa-angle-right"></i> JL Jet Pump</li>
+                            </ul>
+                            <div class="pc-usage">CNC Coolant Systems</div>
+                        </div>
+                        <a href="#contact" class="btn btn-card">Request Price <i class="fas fa-arrow-right"></i></a>
+                    </article>
+
+                    <!-- RAJAMANE PUMPS -->
+                    <article class="product-card scroll-fade delay-1" data-name="rajamane coolant pump rkm sap high pressure cnc coolant" data-cat="pumps">
+                        <div class="pc-badge">Rajamane</div>
+                        <div class="pc-icon-wrap pumps-color">
+                            <i class="fas fa-water"></i>
+                        </div>
+                        <div class="pc-body">
+                            <h3>Rajamane Coolant Pumps</h3>
+                            <ul class="pc-specs">
+                                <li><i class="fas fa-angle-right"></i> RKM025 Coolant Pump</li>
+                                <li><i class="fas fa-angle-right"></i> SAP PA 35 Series</li>
+                                <li><i class="fas fa-angle-right"></i> 0.13hp 3ph RV40/120 with Switch</li>
+                                <li><i class="fas fa-angle-right"></i> 12.140 High Pressure Pump</li>
+                            </ul>
+                            <div class="pc-usage">VMC / HMC Coolant</div>
+                        </div>
+                        <a href="#contact" class="btn btn-card">Request Price <i class="fas fa-arrow-right"></i></a>
+                    </article>
+
+                    <!-- FAG BEARINGS -->
+                    <article class="product-card scroll-fade delay-2" data-name="fag bearings nsk skf precision ball roller angular cnc spindle" data-cat="bearings">
+                        <div class="pc-badge">FAG / NSK / SKF</div>
+                        <div class="pc-icon-wrap bearings-color">
+                            <i class="fas fa-circle-nodes"></i>
+                        </div>
+                        <div class="pc-body">
+                            <h3>Precision Bearings</h3>
+                            <ul class="pc-specs">
+                                <li><i class="fas fa-angle-right"></i> FAG Deep Groove Ball Bearings</li>
+                                <li><i class="fas fa-angle-right"></i> Angular Contact Bearings</li>
+                                <li><i class="fas fa-angle-right"></i> NSK / SKF High-Speed Spindle</li>
+                                <li><i class="fas fa-angle-right"></i> Roller & Taper Bearings</li>
+                            </ul>
+                            <div class="pc-usage">CNC Spindle & Drive</div>
+                        </div>
+                        <a href="#contact" class="btn btn-card">Request Price <i class="fas fa-arrow-right"></i></a>
+                    </article>
+
+                    <!-- NMB COOLING FANS -->
+                    <article class="product-card scroll-fade delay-3" data-name="nmb fan sanyo denki cooling fan fanuc dc 24v 48v drive cooling cnc" data-cat="fans">
+                        <div class="pc-badge">NMB / Fanuc</div>
+                        <div class="pc-icon-wrap fans-color">
+                            <i class="fas fa-fan"></i>
+                        </div>
+                        <div class="pc-body">
+                            <h3>Cooling Fans</h3>
+                            <ul class="pc-specs">
+                                <li><i class="fas fa-angle-right"></i> NMB DC Axial Fans</li>
+                                <li><i class="fas fa-angle-right"></i> Fanuc Drive Cooling Fans</li>
+                                <li><i class="fas fa-angle-right"></i> Sanyo Denki AC / DC Fans</li>
+                                <li><i class="fas fa-angle-right"></i> 24V / 48V / 100V Options</li>
+                            </ul>
+                            <div class="pc-usage">Fanuc / Servo Drive Cooling</div>
+                        </div>
+                        <a href="#contact" class="btn btn-card">Request Price <i class="fas fa-arrow-right"></i></a>
+                    </article>
+
+                    <!-- SENSORS -->
+                    <article class="product-card scroll-fade" data-name="omron proximity sensor inductive capacitive pnp npn m12 m18 m30 cnc automation" data-cat="electrical">
+                        <div class="pc-badge">OMRON</div>
+                        <div class="pc-icon-wrap electrical-color">
+                            <i class="fas fa-radar"></i>
+                        </div>
+                        <div class="pc-body">
+                            <h3>Proximity Sensors</h3>
+                            <ul class="pc-specs">
+                                <li><i class="fas fa-angle-right"></i> OMRON Inductive M12 / M18 / M30</li>
+                                <li><i class="fas fa-angle-right"></i> PNP / NPN Output</li>
+                                <li><i class="fas fa-angle-right"></i> Capacitive Sensors</li>
+                                <li><i class="fas fa-angle-right"></i> Photoelectric Sensors</li>
+                            </ul>
+                            <div class="pc-usage">CNC Position Detection</div>
+                        </div>
+                        <a href="#contact" class="btn btn-card">Request Price <i class="fas fa-arrow-right"></i></a>
+                    </article>
+
+                    <!-- PLC & DRIVES -->
+                    <article class="product-card scroll-fade delay-1" data-name="plc drive servo amplifier fanuc mitsubishi siemens cnc control" data-cat="electrical">
+                        <div class="pc-badge">Fanuc / Siemens</div>
+                        <div class="pc-icon-wrap electrical-color">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <div class="pc-body">
+                            <h3>PLC & Servo Drives</h3>
+                            <ul class="pc-specs">
+                                <li><i class="fas fa-angle-right"></i> Fanuc Servo Amplifiers</li>
+                                <li><i class="fas fa-angle-right"></i> Mitsubishi / Siemens PLCs</li>
+                                <li><i class="fas fa-angle-right"></i> CNC Control Boards</li>
+                                <li><i class="fas fa-angle-right"></i> I/O Modules & CPUs</li>
+                            </ul>
+                            <div class="pc-usage">CNC Control Systems</div>
+                        </div>
+                        <a href="#contact" class="btn btn-card">Request Price <i class="fas fa-arrow-right"></i></a>
+                    </article>
+
+                    <!-- COLLETS & TOOLING -->
+                    <article class="product-card scroll-fade delay-2" data-name="er collets er16 er25 er32 tooling chuck spring steel cnc machining" data-cat="electrical">
+                        <div class="pc-badge">Tooling</div>
+                        <div class="pc-icon-wrap tools-color">
+                            <i class="fas fa-screwdriver-wrench"></i>
+                        </div>
+                        <div class="pc-body">
+                            <h3>Collets & Machine Tooling</h3>
+                            <ul class="pc-specs">
+                                <li><i class="fas fa-angle-right"></i> ER16, ER25, ER32 Collets</li>
+                                <li><i class="fas fa-angle-right"></i> Collet Chucks</li>
+                                <li><i class="fas fa-angle-right"></i> High-Grade Spring Steel</li>
+                                <li><i class="fas fa-angle-right"></i> Bulk Supply Available</li>
+                            </ul>
+                            <div class="pc-usage">VMC / HMC Machining</div>
+                        </div>
+                        <a href="#contact" class="btn btn-card">Request Price <i class="fas fa-arrow-right"></i></a>
+                    </article>
+
+                    <!-- RELAYS & CONTACTORS -->
+                    <article class="product-card scroll-fade delay-3" data-name="relay contactor solid state electromechanical 24v 415v power" data-cat="electrical">
+                        <div class="pc-badge">Electrical</div>
+                        <div class="pc-icon-wrap electrical-color">
+                            <i class="fas fa-plug-circle-bolt"></i>
+                        </div>
+                        <div class="pc-body">
+                            <h3>Relays & Contactors</h3>
+                            <ul class="pc-specs">
+                                <li><i class="fas fa-angle-right"></i> 24V to 415V Range</li>
+                                <li><i class="fas fa-angle-right"></i> Solid State Relays</li>
+                                <li><i class="fas fa-angle-right"></i> Electromechanical Contactors</li>
+                                <li><i class="fas fa-angle-right"></i> Industrial Grade</li>
+                            </ul>
+                            <div class="pc-usage">Power Switching & Control</div>
+                        </div>
+                        <a href="#contact" class="btn btn-card">Request Price <i class="fas fa-arrow-right"></i></a>
+                    </article>
+
+                </div>
+
+                <div class="no-results-msg" id="noResultsMsg" style="display:none;">
+                    <i class="fas fa-search"></i>
+                    <p>No products found. Try a different search term or <a href="#contact">contact us directly</a>.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== BRANDS ===== -->
+        <section id="brands" class="brands section-padding bg-steel">
+            <div class="container">
+                <div class="section-title scroll-fade">
+                    <div class="section-label light">Authorized Service</div>
+                    <h2>Machine Brands We Service</h2>
+                    <p>Certified service and maintenance for leading CNC machine manufacturers.</p>
+                </div>
+                <div class="brands-grid scroll-fade">
+                    <div class="brand-item">
+                        <div class="brand-logo-wrap"><span>WMW</span></div>
+                        <p>Conventional & CNC Lathes</p>
+                    </div>
+                    <div class="brand-item">
+                        <div class="brand-logo-wrap"><span>HYUNDAI WIA</span></div>
+                        <p>CNC Turning Centers</p>
+                    </div>
+                    <div class="brand-item">
+                        <div class="brand-logo-wrap"><span>MAKINO</span></div>
+                        <p>Precision Machining Centers</p>
+                    </div>
+                    <div class="brand-item">
+                        <div class="brand-logo-wrap"><span>DAEWOO</span></div>
+                        <p>VMC / HMC Machines</p>
+                    </div>
+                    <div class="brand-item">
+                        <div class="brand-logo-wrap"><span>BFW</span></div>
+                        <p>Indian Machining Centers</p>
+                    </div>
+                    <div class="brand-item">
+                        <div class="brand-logo-wrap"><span>DOOSAN</span></div>
+                        <p>Multi-axis CNC Centers</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== WHY US ===== -->
+        <section id="why-us" class="whyus section-padding">
+            <div class="container">
+                <div class="section-title scroll-fade">
+                    <div class="section-label">Our Advantage</div>
+                    <h2>Why Choose Ujjwal Engineers</h2>
+                </div>
+                <div class="whyus-grid">
+                    <div class="wu-card scroll-fade">
+                        <div class="wu-icon"><i class="fas fa-certificate"></i></div>
+                        <h4>Genuine Parts Only</h4>
+                        <p>We supply 100% authentic FAG bearings, Brinkmann pumps, NMB fans, and OMRON sensors — no counterfeits, ever.</p>
+                    </div>
+                    <div class="wu-card scroll-fade delay-1">
+                        <div class="wu-icon"><i class="fas fa-headset"></i></div>
+                        <h4>Expert Technical Support</h4>
+                        <p>Durga Nath Pandey and our engineers provide hands-on diagnosis, repair, and technical guidance on-site.</p>
+                    </div>
+                    <div class="wu-card scroll-fade delay-2">
+                        <div class="wu-icon"><i class="fas fa-clock"></i></div>
+                        <h4>Fast Emergency Response</h4>
+                        <p>Machine breakdown? We prioritize emergency calls to get your production line running again with minimal delay.</p>
+                    </div>
+                    <div class="wu-card scroll-fade delay-3">
+                        <div class="wu-icon"><i class="fas fa-indian-rupee-sign"></i></div>
+                        <h4>Competitive Pricing</h4>
+                        <p>Direct sourcing and local NCR market access ensures you get the best trade rates for both parts and service.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FAQ ===== -->
+        <section id="faq" class="faq section-padding bg-steel">
+            <div class="container">
+                <div class="section-title scroll-fade">
+                    <div class="section-label light">Common Questions</div>
                     <h2>Frequently Asked Questions</h2>
-                    <div class="underline"></div>
                 </div>
-                <div class="faq-container scroll-fade">
+                <div class="faq-list scroll-fade">
                     <div class="faq-item">
-                        <button class="faq-question">Do you supply genuine NSK and Casappa? <i class="fas fa-chevron-down"></i></button>
-                        <div class="faq-answer">
-                            <p>Yes, we prioritize quality and only source 100% genuine industrial components from trusted networks.</p>
+                        <button class="faq-q">
+                            <span>Which machine brands do you service?</span>
+                            <i class="fas fa-plus faq-icon"></i>
+                        </button>
+                        <div class="faq-a">
+                            <p>We service WMW, Hyundai WIA, Makino, Daewoo, BFW, and Doosan CNC/VMC/HMC machines. We also handle all types of conventional machines including lathes, milling, gear shapers, and radial drill machines.</p>
                         </div>
                     </div>
                     <div class="faq-item">
-                        <button class="faq-question">Do you deliver outside Delhi NCR? <i class="fas fa-chevron-down"></i></button>
-                        <div class="faq-answer">
-                            <p>Absolutely. We have a robust logistics network for fast delivery across India.</p>
+                        <button class="faq-q">
+                            <span>Do you supply genuine FAG and Brinkmann parts?</span>
+                            <i class="fas fa-plus faq-icon"></i>
+                        </button>
+                        <div class="faq-a">
+                            <p>Yes. We only supply 100% genuine industrial components. Our FAG bearings, Brinkmann pumps, NMB fans, and OMRON sensors come from trusted authorized channels — quality is our top priority.</p>
                         </div>
                     </div>
                     <div class="faq-item">
-                        <button class="faq-question">Can I get a wholesale rate for bulk collets? <i class="fas fa-chevron-down"></i></button>
-                        <div class="faq-answer">
-                            <p>Yes, we specialize in bulk B2B supply. Contact us via WhatsApp for a custom quotation.</p>
+                        <button class="faq-q">
+                            <span>Do you offer on-site service in NCR?</span>
+                            <i class="fas fa-plus faq-icon"></i>
+                        </button>
+                        <div class="faq-a">
+                            <p>Absolutely. We provide on-site service and maintenance across Ghaziabad, Noida, Greater Noida, Delhi, and the wider NCR region. We also dispatch trained technicians for emergency breakdown support.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q">
+                            <span>Can you provide Fanuc control training?</span>
+                            <i class="fas fa-plus faq-icon"></i>
+                        </button>
+                        <div class="faq-a">
+                            <p>Yes, we run a CNC/VMC/HMC training centre with Fanuc Control. We train machine operators and maintenance technicians for both new hires and skill upgrades.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q">
+                            <span>What is your GSTIN number?</span>
+                            <i class="fas fa-plus faq-icon"></i>
+                        </button>
+                        <div class="faq-a">
+                            <p>Our GSTIN is <strong>09CWDPD3387A1ZS</strong>. We issue proper GST invoices for all services and product supplies.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q">
+                            <span>How do I request a bulk spare parts quote?</span>
+                            <i class="fas fa-plus faq-icon"></i>
+                        </button>
+                        <div class="faq-a">
+                            <p>Simply use the contact form below or WhatsApp us directly at +91 99102 28978. Share your part numbers or machine details and we'll provide a competitive quote quickly.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="contact section-padding bg-dark">
+        <!-- ===== CONTACT ===== -->
+        <section id="contact" class="contact section-padding">
             <div class="container">
                 <div class="section-title scroll-fade">
-                    <h2>Request a Quote</h2>
-                    <div class="underline"></div>
+                    <div class="section-label">Get In Touch</div>
+                    <h2>Request a Service or Quote</h2>
+                    <p>Reach out for machine service, spare parts inquiry, or any technical support requirement.</p>
                 </div>
+
                 <div class="contact-grid">
-                    <div class="contact-info scroll-fade">
-                        <h3>Get in Touch</h3>
-                        <p>Need a bulk quote for Casappa pumps, Fanuc fans, or OMRON sensors? Reach out today.</p>
-                        <div class="info-item">
-                            <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
-                            <span>Delhi NCR (Bhagirath Palace Market), India</span>
+                    <div class="contact-info-col scroll-fade">
+                        <div class="contact-person">
+                            <div class="cp-avatar">DNP</div>
+                            <div>
+                                <h4>Durga Nath Pandey</h4>
+                                <p>Proprietor, Ujjwal Electricals</p>
+                            </div>
                         </div>
-                        <div class="info-item">
-                            <div class="info-icon"><i class="fas fa-phone-alt"></i></div>
-                            <span>+91 98765 43210</span>
-                        </div>
-                        <div class="info-item">
-                            <div class="info-icon"><i class="fab fa-whatsapp"></i></div>
-                            <span>+91 98765 43210</span>
-                        </div>
-                        <div class="info-item">
-                            <div class="info-icon"><i class="fas fa-envelope"></i></div>
-                            <span>sales@ncrautomation.com</span>
+
+                        <div class="info-cards">
+                            <a href="tel:9971276078" class="info-card">
+                                <div class="ic-icon"><i class="fas fa-phone-alt"></i></div>
+                                <div>
+                                    <span>Primary</span>
+                                    <strong>+91 99712 76078</strong>
+                                </div>
+                            </a>
+                            <a href="tel:9910228978" class="info-card">
+                                <div class="ic-icon"><i class="fas fa-phone"></i></div>
+                                <div>
+                                    <span>Alternate</span>
+                                    <strong>+91 99102 28978</strong>
+                                </div>
+                            </a>
+                            <a href="https://wa.me/919910228978" target="_blank" class="info-card wa-card">
+                                <div class="ic-icon"><i class="fab fa-whatsapp"></i></div>
+                                <div>
+                                    <span>WhatsApp</span>
+                                    <strong>+91 99102 28978</strong>
+                                </div>
+                            </a>
+                            <a href="mailto:durga.pandey44@gmail.com" class="info-card">
+                                <div class="ic-icon"><i class="fas fa-envelope"></i></div>
+                                <div>
+                                    <span>Email</span>
+                                    <strong>durga.pandey44@gmail.com</strong>
+                                </div>
+                            </a>
+                            <div class="info-card no-link">
+                                <div class="ic-icon"><i class="fas fa-location-dot"></i></div>
+                                <div>
+                                    <span>Address</span>
+                                    <strong>Sector-9, H.No. 2313, Block-51,<br>Siddharth Vihar, Ghaziabad - 201009</strong>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <form id="contactForm" class="contact-form scroll-fade delay-1" novalidate>
-                        <div class="form-group">
-                            <label for="name">Company / Contact Name</label>
-                            <input type="text" id="name" required placeholder="Enter your name">
-                            <div class="error-msg" id="nameError">Please enter your name.</div>
+                    <form id="contactForm" class="contact-form-col scroll-fade delay-1" novalidate>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="f-name">Your Name / Company *</label>
+                                <input type="text" id="f-name" name="name" required placeholder="e.g. Rajesh Kumar / Precision Tools Ltd">
+                                <span class="ferr" id="err-name">Please enter your name.</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="f-phone">Phone / WhatsApp *</label>
+                                <input type="tel" id="f-phone" name="phone" required placeholder="e.g. 9910228978">
+                                <span class="ferr" id="err-phone">Please enter a valid 10-digit number.</span>
+                            </div>
                         </div>
                         <div class="form-group">
-                            <label for="phone">Phone / WhatsApp Number</label>
-                            <input type="tel" id="phone" required placeholder="Enter your phone number">
-                            <div class="error-msg" id="phoneError">Please enter a valid phone number.</div>
+                            <label for="f-type">Inquiry Type</label>
+                            <select id="f-type" name="type">
+                                <option value="">-- Select Inquiry Type --</option>
+                                <option value="cnc-service">CNC / VMC / HMC Service</option>
+                                <option value="spare-parts">Spare Parts / Products</option>
+                                <option value="training">Fanuc Training</option>
+                                <option value="hydraulic">Hydraulic / Pneumatic Service</option>
+                                <option value="electrical">Electrical / Power Factor</option>
+                                <option value="other">Other</option>
+                            </select>
                         </div>
                         <div class="form-group">
-                            <label for="message">Part Numbers / Requirements</label>
-                            <textarea id="message" rows="4" required placeholder="E.g., NSK 6205 Bearing - Qty 100, Casappa Pump PLP20"></textarea>
-                            <div class="error-msg" id="messageError">Please enter your requirements.</div>
+                            <label for="f-message">Your Requirements *</label>
+                            <textarea id="f-message" name="message" rows="5" required placeholder="Describe your machine model, part numbers, quantity needed, or service required..."></textarea>
+                            <span class="ferr" id="err-message">Please describe your requirements.</span>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-block btn-lg">Send Inquiry</button>
-                        <div id="formSuccess" class="success-msg"><i class="fas fa-check-circle"></i> Inquiry submitted successfully!</div>
+                        <button type="submit" class="btn btn-primary btn-submit">
+                            <span class="btn-text"><i class="fas fa-paper-plane"></i> Send Inquiry</span>
+                            <span class="btn-loading" style="display:none;"><i class="fas fa-circle-notch fa-spin"></i> Sending...</span>
+                        </button>
+                        <div class="form-success" id="formSuccess">
+                            <i class="fas fa-circle-check"></i>
+                            <p>Inquiry sent! We'll contact you within 24 hours on WhatsApp or phone.</p>
+                        </div>
                     </form>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer>
-        <div class="container footer-grid">
-            <div class="footer-col">
-                <h4>NCR Automation</h4>
-                <p>Your trusted B2B partner for OMRON, NSK, and Casappa components in Delhi NCR.</p>
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <div class="logo-badge sm"><span class="logo-u">U</span><span class="logo-e">E</span></div>
+                    <div>
+                        <strong>Ujjwal Electricals &<br>Mechanical Engineers</strong>
+                        <span>Service & Maintenance</span>
+                    </div>
+                </div>
+                <p>Expert CNC/VMC/HMC service, Fanuc training, and genuine spare parts in Ghaziabad NCR since 2005.</p>
+                <p class="footer-gstin">GSTIN: 09CWDPD3387A1ZS</p>
             </div>
-            <div class="footer-col">
-                <h4>Products</h4>
+            <div class="footer-links-col">
+                <h5>Services</h5>
                 <ul>
-                    <li><i class="fas fa-angle-right"></i> <a href="#products">OMRON Sensors</a></li>
-                    <li><i class="fas fa-angle-right"></i> <a href="#products">NSK Bearings</a></li>
-                    <li><i class="fas fa-angle-right"></i> <a href="#products">Casappa Pumps</a></li>
-                    <li><i class="fas fa-angle-right"></i> <a href="#products">Fanuc Fans</a></li>
+                    <li><a href="#services">CNC / VMC / HMC Training</a></li>
+                    <li><a href="#services">Conventional Machine Service</a></li>
+                    <li><a href="#services">Hydraulic & Pneumatic</a></li>
+                    <li><a href="#services">HT/LT Box Glending</a></li>
                 </ul>
             </div>
-            <div class="footer-col">
-                <h4>Connect</h4>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                </div>
+            <div class="footer-links-col">
+                <h5>Products</h5>
+                <ul>
+                    <li><a href="#products">Brinkmann Pumps</a></li>
+                    <li><a href="#products">FAG / NSK Bearings</a></li>
+                    <li><a href="#products">NMB / Fanuc Fans</a></li>
+                    <li><a href="#products">OMRON Sensors</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact-col">
+                <h5>Contact</h5>
+                <p><i class="fas fa-user"></i> Durga Nath Pandey</p>
+                <p><i class="fas fa-phone"></i> <a href="tel:9971276078">+91 99712 76078</a></p>
+                <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/919910228978">+91 99102 28978</a></p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:durga.pandey44@gmail.com">durga.pandey44@gmail.com</a></p>
+                <p><i class="fas fa-location-dot"></i> Siddharth Vihar, Ghaziabad - 201009</p>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; <span id="year"></span> NCR Industrial Automation. All Rights Reserved.</p>
+            <p>&copy; <span id="year"></span> Ujjwal Electricals & Mechanical Engineers Enterprises. All Rights Reserved.</p>
         </div>
     </footer>
 
-    <a href="https://wa.me/919876543210?text=Hello,%20I%20have%20an%20inquiry%20regarding%20automation%20components." class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/919910228978?text=Hello%20Ujjwal%20Electricals%2C%20I%20need%20assistance%20with%20my%20machine%2Fspare%20parts." 
+       class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" title="Chat on WhatsApp">
         <i class="fab fa-whatsapp"></i>
+        <span class="wa-tooltip">Chat on WhatsApp</span>
     </a>
 
-    <button id="backToTop" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+    <!-- Back to Top -->
+    <button id="backToTop" aria-label="Back to top" title="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <script src="app.js"></script>
 </body>
